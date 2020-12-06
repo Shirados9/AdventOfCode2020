@@ -2,15 +2,16 @@ import os
 from operator import xor
 
 dirName = os.path.dirname(__file__)
-inputFile = os.path.join(dirName, 'input.txt')
+inputFile = os.path.join(dirName, "input.txt")
+
 
 def part1(data):
     print("Part 1: ")
     validPasswords = 0
-    
+
     for line in data:
         splitted = line.split(" ")
-        amount = splitted[0].split('-')
+        amount = splitted[0].split("-")
         letter = splitted[1][0]
         password = splitted[2]
 
@@ -20,16 +21,18 @@ def part1(data):
 
         if occuranceOfChars in range(amountMin, amountMax + 1):
             validPasswords += 1
+
     print("There are {} correct passwords!".format(validPasswords))
     return
+
 
 def part2(data):
     print("Part 2: ")
     validPasswords = 0
-    
+
     for line in data:
         splitted = line.split(" ")
-        position = splitted[0].split('-')
+        position = splitted[0].split("-")
         letter = splitted[1][0]
         password = splitted[2]
 
@@ -47,6 +50,7 @@ def main():
         data = file.read().splitlines()
         part1(data)
         part2(data)
+
 
 if __name__ == "__main__":
     main()
